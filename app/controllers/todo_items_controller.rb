@@ -8,11 +8,8 @@ class TodoItemsController < ApplicationController
     @todo_item.todo_list = @todo_list
     if @todo_item.save
       flash[:notice] = "Todo Item created successfully."
-      redirect_to @todo_list
-      # redirect_to(:action => "index")
-    else
-      render("new")
     end
+    redirect_to @todo_list
   end
 
   def destroy
