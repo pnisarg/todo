@@ -6,13 +6,21 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,700italic' rel='stylesheet' type='text/css'>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
 
 </head>
 <body>
-<div class="container">
-  <%= yield %>
-</div>
+ <div class="nav">
+  <% if user_signed_in? %>
+  <div class="nav_info"><%= current_user.email %> |
+    <% end %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+    </div>
+  </div>
+  <div class="container">
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </div>
 
 
 </body>

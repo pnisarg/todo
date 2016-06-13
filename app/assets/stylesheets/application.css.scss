@@ -26,6 +26,7 @@ html {
 
 body {
   height: 100%;
+  margin: 0px;
   background: -webkit-linear-gradient(50deg, #FCB8C4 10%, #EAECC6 100%);
   background:    -moz-linear-gradient(40deg, #FCB8C4 10%, #EAECC6 100%);
   background:     -ms-linear-gradient(40deg, #FCB8C4 10%, #EAECC6 100%);
@@ -44,6 +45,16 @@ body {
 
 .clearfix:after {
   clear: both;
+}
+.nav{
+  display: block;
+  height: 40px;
+  background-color: rgba(40,40,40,0.3);
+
+}
+.nav_info{
+text-align: right;
+padding: 10px;
 }
 
 #notice {
@@ -95,7 +106,10 @@ a:hover {
   padding: 5px;
 
 }
-
+.devise_text{
+  font-size: 1.3em;
+  padding: 5px;
+}
 .todo_list_sub_title {
   margin: 1.2em 0 3em 0;
   text-align: center;

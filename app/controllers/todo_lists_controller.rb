@@ -1,10 +1,12 @@
 class TodoListsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_todo_list, only: [:show, :edit, :update, :destroy]
 
   # GET /todo_lists
   # GET /todo_lists.json
   def index
-    @todo_lists = TodoList.all
+    # @todo_lists = TodoList.all
+    @todo_lists = TodoList.where( :user_id => current_user.id)
   end
 
   # GET /todo_lists/1
@@ -25,7 +27,7 @@ class TodoListsController < ApplicationController
   # POST /todo_lists.json
   def create
     @todo_list = TodoList.new(todo_list_params)
-
+    @todo_list.user_id = current_user.id
     respond_to do |format|
       if @todo_list.save
         format.html { redirect_to @todo_list, notice: 'Todo list was successfully created.' }
@@ -71,4 +73,5 @@ class TodoListsController < ApplicationController
     def todo_list_params
       params.require(:todo_list).permit(:title, :description)
     end
+
 end
